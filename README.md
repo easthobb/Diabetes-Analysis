@@ -4,7 +4,6 @@
 본 레포는 '다양한 관점에서의 보건영양데이터'를 주제로, 제7기 2018 국민 보건영양조사의 데이터를 이용합니다. 본 연구에서의 핵심 목표는 다음과 같습니다. 
 
  ## Objects
----
  **Key Object : 당뇨병 예측모델 개발**  
  
  **sub Objects :**
@@ -20,7 +19,7 @@
 
 
 ## Files
----
+
 - dEDA.py : 연구 전반적인 코드 수행(변수 drop , 스케일링, 분류 모델 train / fit 등 model 성능 판단) 
 
 - dEDA.ipynb : dEDA.py block by block 수행(graph)
@@ -37,7 +36,6 @@
 
 
 ## 현재 진행 상황
----
 - 유력변수 선별 완료(11.24) // VIF , Corelation
 
 - 데이터 구조 시각화 // Histogram pairplot HC
@@ -45,13 +43,11 @@
 - 분류기 사용 및 train 완료 // 현재 SVM 만
 
 ## 결과
-----
 (노션에서 업로드)
 
 ##  Keyword
----
 ML, SVM, CATBOOST,XGBOOST, VIF, Corelation, diabetes, Classifier, 
 
 ## 도전과제
-----
+
 - Decision.py 모델로 사용자에게 선별 변수를 입력받아 당뇨병 판별을 해주는 Web app 개발
