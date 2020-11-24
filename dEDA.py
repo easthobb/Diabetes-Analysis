@@ -3,7 +3,6 @@
 # STEP 2 - 데이터 임포팅 - O
 
 # STEP 3 - KNN 으로 missing value filling 
-# -> O (민경 코드)
 
 # STEP 4 - Data 자체의 구조와 분석 
 # -> (histogram-O, pairplot-O, HC-진행중)
