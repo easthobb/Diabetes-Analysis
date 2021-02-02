@@ -1,53 +1,33 @@
 # Diabetes-Analysis
-20-2 개별연구 다양한 관점에서의 보건영양데이터 분석
+21년 한국통신학회 동계 학술종합발표회 투고 논문(17E-54) "XGBoost 기반 당뇨병 예측 알고리즘 연구:국민건강영양조사 2016~2018을 이용하여"의 Open Source Repository 입니다.(ISSN:2383-8302(Online) Vol.74)본 레포는 '다양한 관점에서의 보건영양데이터'를 주제로, 제7기 2018 국민 보건영양조사의 데이터를 이용했습니다.본 연구에서의 핵심 목표는 **당뇨병 예측모델 개발** 이며 본 Repository에서는 프로젝트의 아키텍쳐, 코드, 결과 그래프 등이 포함되어 있습니다.연구 전반의 기록과 과정을 노션 페이지에서도 확인할 수 있습니다.
 
-본 레포는 '다양한 관점에서의 보건영양데이터'를 주제로, 제7기 2018 국민 보건영양조사의 데이터를 이용합니다. 본 연구에서의 핵심 목표는 다음과 같습니다. 
+https://www.notion.so/hobbeskim/XGBoost-20-2-2740a0d75839481b8cbefa7cdab69466
+## Architecture
+![Archi](https://user-images.githubusercontent.com/57410044/106548637-b39bfc00-6552-11eb-91ce-3b629b599dfc.png)
 
- ## Objects
- **Key Object : 당뇨병 예측모델 개발**  
- 
- **sub Objects :**
-
--  국민보건영양데이터 2018 중 당뇨병 관련 유력 변수 선별
-
--  당뇨병 환자군/비환자군 , 노인/비노인(65세 기준)의 데이터 구조 시각화
-
--  데이터에 대해 ML적 기법을 적용시켜 SVM/Catboost/RF/GLM 등 다양한 분류기를 학습
-
-- 학습된 분류기의 정확성을 전체 정확도, 당뇨병 판펼도(2형오류/정상판별)로 판단
-- 가장 최적화된 성능을 가진 모델을 선별해 개별 환자 데이터를 입력해 유병 여부를 판단할 수 있는 코드 개발
+## Model Evaluation
+![roc](https://user-images.githubusercontent.com/57410044/106548802-070e4a00-6553-11eb-92ba-c49ce1859fd2.jpg)
+![values](https://user-images.githubusercontent.com/57410044/106548809-0a093a80-6553-11eb-9e4c-09cdf0572662.png)
 
 
-## Files
+## Files Description
 
-- dEDA.py : 연구 전반적인 코드 수행(변수 drop , 스케일링, 분류 모델 train / fit 등 model 성능 판단) 
-
-- dEDA.ipynb : dEDA.py block by block 수행(graph)
-
-- decision.py : json 형태 샘플 데이터에 대해서 분류(당뇨병/비당뇨병) 수행 
-
-- MissingValue_KNN.ipynb : 결측치 처리(범주형) 수행코드
-
-- MissingValue_Median.ipynb : 결측치 처리(연속형) 수행코드
-
-- PCA_EDA.ipynb : PCA 테스팅 (비도입 결정)
-
-- 2018_SEL_FILLED.csv : 가공된 2018 국민보건영양데이터 
+- ./Data : 실제로 연구에 이용한 데이터 파일, 국민건강영양조사 데이터 가공
+- ./Data EDA : 데이터를 분석하고 시각화 한 과정의 자료가 존재
+- ./Data Processing : 모델 학습과 예측을 위해 전처리를 수행한 과정의 파일 존재 
+- ./Etc : 기타 개발과정의 오류나 산출물 등
+- ./Results : 결과 그래프 원본 이미지
+- FOLD_EVALUATION.ipynb : 가공된 데이터 -> 최종 결과 수행 시퀀스
 
 
-## 현재 진행 상황
-- 유력변수 선별 완료(11.24) // VIF , Corelation
-
-- 데이터 구조 시각화 // Histogram pairplot HC
-
-- 분류기 사용 및 train 완료 // 현재 SVM 만
-
-## 결과
-(노션에서 업로드)
+## 향후 도전과제
+- 시계열 추적 연구에 기반한 보다 사전적인 예측이 가능한 Data Set과 모델이 필요
+- **선별된 변수와 훈련된 모델로 사용자에게 입력을 받아 당뇨병 유병 여부, 확률 등을 예측하는 Web App 개발**
+- 당뇨병의 유병 여부 및 사전 진단에 사용 가능한 생체 지표 발굴 중요성 시사
 
 ##  Keyword
-ML, SVM, CATBOOST,XGBOOST, VIF, Corelation, diabetes, Classifier, 
+ML,XGBOOST, VIF, Corelation, diabetes, Classifier, 당뇨병 예측, 국민건강영양조사, 알고리즘
 
-## 도전과제
-
-- Decision.py 모델로 사용자에게 선별 변수를 입력받아 당뇨병 판별을 해주는 Web app 개발
+## Acknowledgement
+- 본 연구는 과학기술정보통신부 및 정보통신기획평가원의 대학ICT연구센터지원사업의 연구 결과로 수행되었음 (IITP-2021- 2020-0-01789)
+- 본 연구는 과학기술정보통신부 및 정보통신기획평가원의 SW중심대학지원사업의 연구결과로 수행되었음(2016-0-00017)
